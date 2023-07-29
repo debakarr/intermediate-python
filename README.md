@@ -6,7 +6,7 @@
 
 ## ✨ Try it in your browser ✨
 
-➡️ **https://debakarr.github.io/itermediate-python**
+➡️ **https://debakarr.github.io/intermediate-python**
 
 # Course content
 
