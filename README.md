@@ -1,29 +1,166 @@
-# JupyterLite Demo
+# Intermediate Python Course
 
-[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://jupyterlite.github.io/demo)
+[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://debakarr.github.io/itermediate-python)
 
-JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/debakarr/itermediate-python/HEAD)
 
 ## ✨ Try it in your browser ✨
 
-➡️ **https://jupyterlite.github.io/demo**
+➡️ **https://debakarr.github.io/itermediate-python**
 
-![github-pages](https://user-images.githubusercontent.com/591645/120649478-18258400-c47d-11eb-80e5-185e52ff2702.gif)
+# Course content
 
-## Requirements
-
-JupyterLite is being tested against modern web browsers:
-
-- Firefox 90+
-- Chromium 89+
-
-## Deploy your JupyterLite website on GitHub Pages
-
-Check out the guide on the JupyterLite documentation: https://jupyterlite.readthedocs.io/en/latest/quickstart/deploy.html
-
-## Further Information and Updates
-
-For more info, keep an eye on the JupyterLite documentation:
-
-- How-to Guides: https://jupyterlite.readthedocs.io/en/latest/howto/index.html
-- Reference: https://jupyterlite.readthedocs.io/en/latest/reference/index.html
+- [Basic Overview](./01_python_basic_overview.ipynb)
+    - Identifiers
+    - PEP 8
+    - Numbers
+        - Integral Numbers (Integer)
+        - Integral Numbers (Boolean)
+        - Non-Integral Numbers (Float)
+        - Non-Integral Numbers (Complex)
+        - Non-Integral Numbers (Decimal)
+        - Non-Integral Numbers (Fractions)
+    - Sequence
+        - Mutable Sequence (List)
+        - Immutable Sequence (Tuple)
+        - Immutable Sequence (String)
+    - Set
+        - Mutable Set (Set)
+        - Immutable Set (Frozen Set)
+    - Mappings
+        - Dictionary
+    - Callables
+        - User-defined Functions
+        - Generators
+        - Classes
+        - Instance Methods
+        - Class Instance
+        - Built-in Functions
+        - Built-in Methods
+    - Singletons
+        - None
+        - NotImplemented
+        - Ellipsis
+    - Control Flow
+    - range()
+    - Loops
+        - For loop
+        - While loop
+        - break
+        - continue
+        - Loop through dictionary (.items() returns dict_item which is nothing but list of tuple)
+        - Enumerate for accessing list item along with index
+        - Loop inside loop
+    - merge two iterable using `zip`
+    - pass and continue
+    - Exception handling
+    - String formatting
+        - Old style
+        - New style
+        - String Interpolationm (f-string)
+- [Intermediate Collections](./02_intemediate_collections.ipynb)
+    - Counter
+    - defaultdict
+    - deque
+    - namedtuple
+- [Memory Management in Python](./03_memory_management_in_python.ipynb)
+    - Everything is in memory as an object
+    - id() function
+    - sys.getrefcount(...)
+    - Python is dynamically typed
+    - Mutability
+    - Variable Equality
+    - Memory optimization
+        - Interning
+        - Number Interning
+        - String Interning
+        - Peephole
+- [Function parameters and arguments](./04_function_parameters_and_arguments.ipynb)
+    - Parameters
+    - Arguments
+    - Argument are always passed by reference
+    - Function argument as mutable/immutable
+    - Positional and Keyword Argument
+    - Unpacking tuple
+        - Using unpacking swap value
+        - Don't try to unpack set or dictionary key
+        - `* for unpacking`
+        - `** for unpacking`
+        - Unpacking nested value
+    - `*args`
+        - Mandatory keyword argument
+        - Catch all vs no additional positional argument
+    - `**kwargs`
+- [Namespace, Scope and Closure](./05_namespaces_scopes_and_closures.ipynb)
+- [Other functions concepts](./06_other_functions_concepts.ipynb)
+    - Lambda Expression
+        - Limitation of lambda
+    - Higher order function
+    - Docstrings and Annotation
+    - Function introspection
+        - Introspection using inspect module
+    - Callable
+        - built-in functions are callable
+        - built-in methods are callable
+        - user define function or methods are callable
+        - classes and methods (function bound to an object) are callable
+        - Generators are callable (discussed in details later section)
+    - Decorator
+        - Introspecting a decorator
+        - functools.wraps
+        - Decorators with parameters
+        - Decorator for caching
+- [Sequence, Iterator and Generator](./07_sequence_iterators_and_generators.ipynb)
+    - Sequences
+    - Iterators
+      - Creating custom iterator
+    - Generators
+      - Iterator are more memory-efficient than Generator 
+      - Generator are faster then Iterator
+    - Aggregators
+    - Slicing Iterables
+    - Selection and Filtering
+    - Infinite Iterators
+    - Mapping and Reducing
+    - Chaining and Teeing
+    - Grouping
+    - Combinatorics
+- [Content Manager](./08_context_managers.ipynb)
+    - Understanding `with` statement
+    - context manager using class (`__enter__`, `__exit__`)
+    - context manager using `@contextlib.contextmanager`
+    - common use case
+- [Building command line interface](./09_argparse/09_argparse.ipynb)
+    - Understanding command-line interfaces (CLIs) in Python.
+    - Using the argparse module for parsing command-line arguments.
+    - Handling positional and optional arguments.
+    - Specifying default values and custom type checks for arguments.
+    - Defining subcommands for more complex CLIs.
+- Testing
+    - Importance of testing in software development.
+    - Writing unit tests with the `unittest` module.
+    - Using test fixtures and test cases.
+    - Test-driven development (TDD) approach.
+- Multithreading and Multiprocessing
+    - Differences between multithreading and multiprocessing.
+    - Using the `threading` module for multithreading.
+    - Utilizing the `multiprocessing` module for multiprocessing.
+    - Dealing with thread synchronization and communication.
+- Virtual Environments
+    - Understanding the need for virtual environments.
+    - Using `venv` to create isolated Python environments.
+    - Activating and deactivating virtual environments.
+    - Managing dependencies with `requirements.txt` and `pip`.
+- Packaging and Interop
+    - Creating Python packages for code organization.
+    - Working with `setuptools` for packaging and distribution.
+    - Overview of interoperability with other languages (C, C++, etc.).
+- Python Standard Library
+    - Exploring key modules in the Python standard library.
+    - Using modules for file I/O, datetime, logging, math, etc.
+    - Practical applications of standard library modules.
+- Basic Web Microservice
+    - Introduction to web services and APIs.
+    - Creating a basic microservice using a web framework like Flask.
+    - Handling HTTP requests and responses.
+    - Deploying the microservice for testing.
