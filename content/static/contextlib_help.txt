@@ -1,0 +1,648 @@
+This is written using contextlib.redirect_stdout
+Help on module contextlib:
+
+NAME
+    contextlib - Utilities for with-statement contexts.  See PEP 343.
+
+MODULE REFERENCE
+    https://docs.python.org/3.8/library/contextlib
+    
+    The following documentation is automatically generated from the Python
+    source files.  It may be incomplete, incorrect or include features that
+    are considered implementation detail and may vary between Python
+    implementations.  When in doubt, consult the module reference at the
+    location listed above.
+
+CLASSES
+    abc.ABC(builtins.object)
+        AbstractAsyncContextManager
+            AsyncExitStack(_BaseExitStack, AbstractAsyncContextManager)
+        AbstractContextManager
+            ExitStack(_BaseExitStack, AbstractContextManager)
+            closing
+            nullcontext
+            suppress
+    builtins.object
+        ContextDecorator
+    _BaseExitStack(builtins.object)
+        AsyncExitStack(_BaseExitStack, AbstractAsyncContextManager)
+        ExitStack(_BaseExitStack, AbstractContextManager)
+    _RedirectStream(AbstractContextManager)
+        redirect_stderr
+        redirect_stdout
+    
+    class AbstractAsyncContextManager(abc.ABC)
+     |  An abstract base class for asynchronous context managers.
+     |  
+     |  Method resolution order:
+     |      AbstractAsyncContextManager
+     |      abc.ABC
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  async __aenter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  async __aexit__(self, exc_type, exc_value, traceback)
+     |      Raise any exception triggered within the runtime context.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |  
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |      
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset({'__aexit__'})
+    
+    class AbstractContextManager(abc.ABC)
+     |  An abstract base class for context managers.
+     |  
+     |  Method resolution order:
+     |      AbstractContextManager
+     |      abc.ABC
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __enter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  __exit__(self, exc_type, exc_value, traceback)
+     |      Raise any exception triggered within the runtime context.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |  
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |      
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset({'__exit__'})
+    
+    class AsyncExitStack(_BaseExitStack, AbstractAsyncContextManager)
+     |  Async context manager for dynamic management of a stack of exit
+     |  callbacks.
+     |  
+     |  For example:
+     |      async with AsyncExitStack() as stack:
+     |          connections = [await stack.enter_async_context(get_connection())
+     |              for i in range(5)]
+     |          # All opened connections will automatically be released at the
+     |          # end of the async with statement, even if attempts to open a
+     |          # connection later in the list raise an exception.
+     |  
+     |  Method resolution order:
+     |      AsyncExitStack
+     |      _BaseExitStack
+     |      AbstractAsyncContextManager
+     |      abc.ABC
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  async __aenter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  async __aexit__(self, *exc_details)
+     |      Raise any exception triggered within the runtime context.
+     |  
+     |  async aclose(self)
+     |      Immediately unwind the context stack.
+     |  
+     |  async enter_async_context(self, cm)
+     |      Enters the supplied async context manager.
+     |      
+     |      If successful, also pushes its __aexit__ method as a callback and
+     |      returns the result of the __aenter__ method.
+     |  
+     |  push_async_callback(self, callback, /, *args, **kwds)
+     |      Registers an arbitrary coroutine function and arguments.
+     |      
+     |      Cannot suppress exceptions.
+     |  
+     |  push_async_exit(self, exit)
+     |      Registers a coroutine function with the standard __aexit__ method
+     |      signature.
+     |      
+     |      Can suppress exceptions the same way __aexit__ method can.
+     |      Also accepts any object with an __aexit__ method (registering a call
+     |      to the method instead of the object itself).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _BaseExitStack:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  callback(self, callback, /, *args, **kwds)
+     |      Registers an arbitrary callback and arguments.
+     |      
+     |      Cannot suppress exceptions.
+     |  
+     |  enter_context(self, cm)
+     |      Enters the supplied context manager.
+     |      
+     |      If successful, also pushes its __exit__ method as a callback and
+     |      returns the result of the __enter__ method.
+     |  
+     |  pop_all(self)
+     |      Preserve the context stack by transferring it to a new instance.
+     |  
+     |  push(self, exit)
+     |      Registers a callback with the standard __exit__ method signature.
+     |      
+     |      Can suppress exceptions the same way __exit__ method can.
+     |      Also accepts any object with an __exit__ method (registering a call
+     |      to the method instead of the object itself).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _BaseExitStack:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from AbstractAsyncContextManager:
+     |  
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |      
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+    
+    class ContextDecorator(builtins.object)
+     |  A base class or mixin that enables context managers to work as decorators.
+     |  
+     |  Methods defined here:
+     |  
+     |  __call__(self, func)
+     |      Call self as a function.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExitStack(_BaseExitStack, AbstractContextManager)
+     |  Context manager for dynamic management of a stack of exit callbacks.
+     |  
+     |  For example:
+     |      with ExitStack() as stack:
+     |          files = [stack.enter_context(open(fname)) for fname in filenames]
+     |          # All opened files will automatically be closed at the end of
+     |          # the with statement, even if attempts to open files later
+     |          # in the list raise an exception.
+     |  
+     |  Method resolution order:
+     |      ExitStack
+     |      _BaseExitStack
+     |      AbstractContextManager
+     |      abc.ABC
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __enter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  __exit__(self, *exc_details)
+     |      Raise any exception triggered within the runtime context.
+     |  
+     |  close(self)
+     |      Immediately unwind the context stack.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _BaseExitStack:
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  callback(self, callback, /, *args, **kwds)
+     |      Registers an arbitrary callback and arguments.
+     |      
+     |      Cannot suppress exceptions.
+     |  
+     |  enter_context(self, cm)
+     |      Enters the supplied context manager.
+     |      
+     |      If successful, also pushes its __exit__ method as a callback and
+     |      returns the result of the __enter__ method.
+     |  
+     |  pop_all(self)
+     |      Preserve the context stack by transferring it to a new instance.
+     |  
+     |  push(self, exit)
+     |      Registers a callback with the standard __exit__ method signature.
+     |      
+     |      Can suppress exceptions the same way __exit__ method can.
+     |      Also accepts any object with an __exit__ method (registering a call
+     |      to the method instead of the object itself).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from _BaseExitStack:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from AbstractContextManager:
+     |  
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |      
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+    
+    class closing(AbstractContextManager)
+     |  closing(thing)
+     |  
+     |  Context to automatically close something at the end of a block.
+     |  
+     |  Code like this:
+     |  
+     |      with closing(<module>.open(<arguments>)) as f:
+     |          <block>
+     |  
+     |  is equivalent to this:
+     |  
+     |      f = <module>.open(<arguments>)
+     |      try:
+     |          <block>
+     |      finally:
+     |          f.close()
+     |  
+     |  Method resolution order:
+     |      closing
+     |      AbstractContextManager
+     |      abc.ABC
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __enter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  __exit__(self, *exc_info)
+     |      Raise any exception triggered within the runtime context.
+     |  
+     |  __init__(self, thing)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from AbstractContextManager:
+     |  
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |      
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from AbstractContextManager:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class nullcontext(AbstractContextManager)
+     |  nullcontext(enter_result=None)
+     |  
+     |  Context manager that does no additional processing.
+     |  
+     |  Used as a stand-in for a normal context manager, when a particular
+     |  block of code is only sometimes used with a normal context manager:
+     |  
+     |  cm = optional_cm if condition else nullcontext()
+     |  with cm:
+     |      # Perform operation, using optional_cm if condition is True
+     |  
+     |  Method resolution order:
+     |      nullcontext
+     |      AbstractContextManager
+     |      abc.ABC
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __enter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  __exit__(self, *excinfo)
+     |      Raise any exception triggered within the runtime context.
+     |  
+     |  __init__(self, enter_result=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from AbstractContextManager:
+     |  
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |      
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from AbstractContextManager:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class redirect_stderr(_RedirectStream)
+     |  redirect_stderr(new_target)
+     |  
+     |  Context manager for temporarily redirecting stderr to another file.
+     |  
+     |  Method resolution order:
+     |      redirect_stderr
+     |      _RedirectStream
+     |      AbstractContextManager
+     |      abc.ABC
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _RedirectStream:
+     |  
+     |  __enter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  __exit__(self, exctype, excinst, exctb)
+     |      Raise any exception triggered within the runtime context.
+     |  
+     |  __init__(self, new_target)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from AbstractContextManager:
+     |  
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |      
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from AbstractContextManager:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class redirect_stdout(_RedirectStream)
+     |  redirect_stdout(new_target)
+     |  
+     |  Context manager for temporarily redirecting stdout to another file.
+     |  
+     |  # How to send help() to stderr
+     |  with redirect_stdout(sys.stderr):
+     |      help(dir)
+     |  
+     |  # How to write help() to a file
+     |  with open('help.txt', 'w') as f:
+     |      with redirect_stdout(f):
+     |          help(pow)
+     |  
+     |  Method resolution order:
+     |      redirect_stdout
+     |      _RedirectStream
+     |      AbstractContextManager
+     |      abc.ABC
+     |      builtins.object
+     |  
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from _RedirectStream:
+     |  
+     |  __enter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  __exit__(self, exctype, excinst, exctb)
+     |      Raise any exception triggered within the runtime context.
+     |  
+     |  __init__(self, new_target)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from AbstractContextManager:
+     |  
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |      
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from AbstractContextManager:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class suppress(AbstractContextManager)
+     |  suppress(*exceptions)
+     |  
+     |  Context manager to suppress specified exceptions
+     |  
+     |  After the exception is suppressed, execution proceeds with the next
+     |  statement following the with statement.
+     |  
+     |       with suppress(FileNotFoundError):
+     |           os.remove(somefile)
+     |       # Execution still resumes here if the file was already removed
+     |  
+     |  Method resolution order:
+     |      suppress
+     |      AbstractContextManager
+     |      abc.ABC
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __enter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  __exit__(self, exctype, excinst, exctb)
+     |      Raise any exception triggered within the runtime context.
+     |  
+     |  __init__(self, *exceptions)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from AbstractContextManager:
+     |  
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |      
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from AbstractContextManager:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    asynccontextmanager(func)
+        @asynccontextmanager decorator.
+        
+        Typical usage:
+        
+            @asynccontextmanager
+            async def some_async_generator(<arguments>):
+                <setup>
+                try:
+                    yield <value>
+                finally:
+                    <cleanup>
+        
+        This makes this:
+        
+            async with some_async_generator(<arguments>) as <variable>:
+                <body>
+        
+        equivalent to this:
+        
+            <setup>
+            try:
+                <variable> = <value>
+                <body>
+            finally:
+                <cleanup>
+    
+    contextmanager(func)
+        @contextmanager decorator.
+        
+        Typical usage:
+        
+            @contextmanager
+            def some_generator(<arguments>):
+                <setup>
+                try:
+                    yield <value>
+                finally:
+                    <cleanup>
+        
+        This makes this:
+        
+            with some_generator(<arguments>) as <variable>:
+                <body>
+        
+        equivalent to this:
+        
+            <setup>
+            try:
+                <variable> = <value>
+                <body>
+            finally:
+                <cleanup>
+
+DATA
+    __all__ = ['asynccontextmanager', 'contextmanager', 'closing', 'nullco...
+
+FILE
+    /opt/conda/lib/python3.8/contextlib.py
+
+
