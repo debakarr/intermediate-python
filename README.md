@@ -1,8 +1,8 @@
 # Intermediate Python Course
 
-[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://debakarr.github.io/itermediate-python)
+[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://debakarr.github.io/intermediate-python)
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/debakarr/itermediate-python/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/debakarr/intermediate-python/HEAD)
 
 ## ✨ Try it in your browser ✨
 
