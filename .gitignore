@@ -114,3 +114,10 @@ dmypy.json
 # jupyterlite
 *.doit.db
 _output
+
+# Virtual environment
+.venv/
+venv/
+.env/
+env/
+
