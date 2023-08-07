@@ -1,4 +1,4 @@
-# Intermediate Python Course
+# Intermediate Python
 
 [![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://debakarr.github.io/intermediate-python)
 
@@ -8,159 +8,53 @@
 
 ➡️ **https://debakarr.github.io/intermediate-python**
 
-# Course content
+This course is targeted to developers who have already beginner experience with Python and want to level up to intermediate to advance level.
+
+Course is delivered by **Roy, Debakar**.
+
+## Expectation/Pre-requisite
+
+You should already have knowledge of:
+- Python fundamentals (identifier, data types, loops, functions, OOP) is assumed.
+- If you are new to Python, consider completing a beginner Python course first.
+- Git (In case you want to clone this repo and run it locally).
+
+## About the Trainer
+
+<h1 align="center">Hi 👋, I'm Debakar Roy</h1>
+
+- 💬 Ask me about **Python, Jenkins, Docker, Kubernetes....**
+
+- 📖 Check my blog at https://debakarr.github.io/posts/
+
+- ⚡ Fun fact **I love watching Anime, KDrama and CDrama**
+
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cs/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://flask.palletsprojects.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" alt="flask" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://graphql.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/graphql/graphql-icon.svg" alt="graphql" width="40" height="40"/> </a> <a href="https://jekyllrb.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/jekyllrb/jekyllrb-icon.svg" alt="jekyll" width="40" height="40"/> </a> <a href="https://www.jenkins.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="jenkins" width="40" height="40"/> </a> <a href="https://kafka.apache.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/apache_kafka/apache_kafka-icon.svg" alt="kafka" width="40" height="40"/> </a> <a href="https://kubernetes.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="kubernetes" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.nginx.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="nginx" width="40" height="40"/> </a> <a href="https://opencv.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg" alt="opencv" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://www.rust-lang.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-plain.svg" alt="rust" width="40" height="40"/> </a> <a href="https://www.selenium.dev" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/detain/svg-logos/780f25886640cef088af994181646db2f6b1a3f8/svg/selenium-logo.svg" alt="selenium" width="40" height="40"/> </a> <a href="https://vuejs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original-wordmark.svg" alt="vuejs" width="40" height="40"/> </a> </p>
+
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=debakarr&theme=dark" alt="debakarr" /></p>
+
+
+## What can you expect?
+
+- Dive deeper into advanced Python concepts and topics.
+- Gain a comprehensive understanding of intermediate Python features.
+- Explore real-world applications of intermediate Python concepts.
+
+## Course content
 
 - [Basic Overview](./01_python_basic_overview.ipynb)
-    - Identifiers
-    - PEP 8
-    - Numbers
-        - Integral Numbers (Integer)
-        - Integral Numbers (Boolean)
-        - Non-Integral Numbers (Float)
-        - Non-Integral Numbers (Complex)
-        - Non-Integral Numbers (Decimal)
-        - Non-Integral Numbers (Fractions)
-    - Sequence
-        - Mutable Sequence (List)
-        - Immutable Sequence (Tuple)
-        - Immutable Sequence (String)
-    - Set
-        - Mutable Set (Set)
-        - Immutable Set (Frozen Set)
-    - Mappings
-        - Dictionary
-    - Callables
-        - User-defined Functions
-        - Generators
-        - Classes
-        - Instance Methods
-        - Class Instance
-        - Built-in Functions
-        - Built-in Methods
-    - Singletons
-        - None
-        - NotImplemented
-        - Ellipsis
-    - Control Flow
-    - range()
-    - Loops
-        - For loop
-        - While loop
-        - break
-        - continue
-        - Loop through dictionary (.items() returns dict_item which is nothing but list of tuple)
-        - Enumerate for accessing list item along with index
-        - Loop inside loop
-    - merge two iterable using `zip`
-    - pass and continue
-    - Exception handling
-    - String formatting
-        - Old style
-        - New style
-        - String Interpolationm (f-string)
 - [Intermediate Collections](./02_intemediate_collections.ipynb)
-    - Counter
-    - defaultdict
-    - deque
-    - namedtuple
 - [Memory Management in Python](./03_memory_management_in_python.ipynb)
-    - Everything is in memory as an object
-    - id() function
-    - sys.getrefcount(...)
-    - Python is dynamically typed
-    - Mutability
-    - Variable Equality
-    - Memory optimization
-        - Interning
-        - Number Interning
-        - String Interning
-        - Peephole
 - [Function parameters and arguments](./04_function_parameters_and_arguments.ipynb)
-    - Parameters
-    - Arguments
-    - Argument are always passed by reference
-    - Function argument as mutable/immutable
-    - Positional and Keyword Argument
-    - Unpacking tuple
-        - Using unpacking swap value
-        - Don't try to unpack set or dictionary key
-        - `* for unpacking`
-        - `** for unpacking`
-        - Unpacking nested value
-    - `*args`
-        - Mandatory keyword argument
-        - Catch all vs no additional positional argument
-    - `**kwargs`
 - [Namespace, Scope and Closure](./05_namespaces_scopes_and_closures.ipynb)
 - [Other functions concepts](./06_other_functions_concepts.ipynb)
-    - Lambda Expression
-        - Limitation of lambda
-    - Higher order function
-    - Docstrings and Annotation
-    - Function introspection
-        - Introspection using inspect module
-    - Callable
-        - built-in functions are callable
-        - built-in methods are callable
-        - user define function or methods are callable
-        - classes and methods (function bound to an object) are callable
-        - Generators are callable (discussed in details later section)
-    - Decorator
-        - Introspecting a decorator
-        - functools.wraps
-        - Decorators with parameters
-        - Decorator for caching
 - [Sequence, Iterator and Generator](./07_sequence_iterators_and_generators.ipynb)
-    - Sequences
-    - Iterators
-      - Creating custom iterator
-    - Generators
-      - Iterator are more memory-efficient than Generator 
-      - Generator are faster then Iterator
-    - Aggregators
-    - Slicing Iterables
-    - Selection and Filtering
-    - Infinite Iterators
-    - Mapping and Reducing
-    - Chaining and Teeing
-    - Grouping
-    - Combinatorics
 - [Content Manager](./08_context_managers.ipynb)
-    - Understanding `with` statement
-    - context manager using class (`__enter__`, `__exit__`)
-    - context manager using `@contextlib.contextmanager`
-    - common use case
 - [Building command line interface](./09_argparse/09_argparse.ipynb)
-    - Understanding command-line interfaces (CLIs) in Python.
-    - Using the argparse module for parsing command-line arguments.
-    - Handling positional and optional arguments.
-    - Specifying default values and custom type checks for arguments.
-    - Defining subcommands for more complex CLIs.
-- Testing
-    - Importance of testing in software development.
-    - Writing unit tests with the `unittest` module.
-    - Using test fixtures and test cases.
-    - Test-driven development (TDD) approach.
-- Multithreading and Multiprocessing
-    - Differences between multithreading and multiprocessing.
-    - Using the `threading` module for multithreading.
-    - Utilizing the `multiprocessing` module for multiprocessing.
-    - Dealing with thread synchronization and communication.
-- Virtual Environments
-    - Understanding the need for virtual environments.
-    - Using `venv` to create isolated Python environments.
-    - Activating and deactivating virtual environments.
-    - Managing dependencies with `requirements.txt` and `pip`.
-- Packaging and Interop
-    - Creating Python packages for code organization.
-    - Working with `setuptools` for packaging and distribution.
-    - Overview of interoperability with other languages (C, C++, etc.).
-- Python Standard Library
-    - Exploring key modules in the Python standard library.
-    - Using modules for file I/O, datetime, logging, math, etc.
-    - Practical applications of standard library modules.
-- Basic Web Microservice
-    - Introduction to web services and APIs.
-    - Creating a basic microservice using a web framework like Flask.
-    - Handling HTTP requests and responses.
-    - Deploying the microservice for testing.
+- [Testing](./10_unittest.ipynb)
+- [Multithreading and Multiprocessing](./11_concurrency.ipynb)
+- [Virtual Environments](./12_virtual_environment.ipynb)
+- [Packaging](./13_packaging.ipynb)
+
+Use [pythontutor](https://pythontutor.com/python-debugger.html#mode=edit) or [Thonny](https://github.com/thonny/thonny) for visualization purpose
