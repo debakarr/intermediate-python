@@ -4,6 +4,8 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/debakarr/intermediate-python/HEAD)
 
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/debakarr/intermediate-python)
+
 ## ✨ Try it in your browser ✨
 
 ➡️ **https://debakarr.github.io/intermediate-python**
