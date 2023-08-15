@@ -1,4 +1,4 @@
-from test_example import *
+from identifier_example import *
 
 if __name__ == "__main__":
     print(f"{dir() = }")
