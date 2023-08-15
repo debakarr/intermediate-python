@@ -43,19 +43,3 @@ You should already have knowledge of:
 - Gain a comprehensive understanding of intermediate Python features.
 - Explore real-world applications of intermediate Python concepts.
 
-## Course content
-
-- [Basic Overview](./01_python_basic_overview.ipynb)
-- [Memory Management in Python](./02_memory_management_in_python.ipynb)
-- [Function parameters and arguments](./03_function_parameters_and_arguments.ipynb)
-- [Namespace, Scope and Closure](./04_namespaces_scopes_and_closures.ipynb)
-- [Other functions concepts](./05_other_functions_concepts.ipynb)
-- [Sequence, Iterator and Generator](./06_sequence_iterators_and_generators.ipynb)
-- [Content Manager](./07_context_managers.ipynb)
-- [Building command line interface](./08_argparse/09_argparse.ipynb)
-- [Testing](./09_unittest.ipynb)
-- [Multithreading and Multiprocessing](./10_concurrency.ipynb)
-- [Virtual Environments](./11_virtual_environment.ipynb)
-- [Packaging](./12_packaging.ipynb)
-
-Use [pythontutor](https://pythontutor.com/python-debugger.html#mode=edit) or [Thonny](https://github.com/thonny/thonny) for visualization purpose
