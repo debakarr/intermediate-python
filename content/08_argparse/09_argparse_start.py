@@ -2,7 +2,7 @@ import argparse
 import pprint
 
 
-def main(argv = None):    
+def main(argv=None):
     # positional
     # help (can be accessed by --help)
     # optional (short vs long)
@@ -11,6 +11,7 @@ def main(argv = None):
     # count, append, choice
     # subcommand
     pass
+
 
 if __name__ == "__main__":
     exit(main())

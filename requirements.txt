@@ -48,3 +48,6 @@ bqplot
 
 # Table
 tabulate
+
+# Black
+black[jupyter]

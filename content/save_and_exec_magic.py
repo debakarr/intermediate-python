@@ -6,10 +6,12 @@ from IPython.display import display, HTML
 import re
 
 # Regular expression to match ANSI escape codes
-ansi_escape = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')
+ansi_escape = re.compile(r"\x1B[@-_][0-?]*[ -/]*[@-~]")
+
 
 def remove_ansi_escape_codes(text):
-    return ansi_escape.sub('', text)
+    return ansi_escape.sub("", text)
+
 
 def save_and_run_magic(line, cell):
     commands = line.split()
@@ -30,7 +32,12 @@ def save_and_run_magic(line, cell):
         display(HTML(f"<pre>{remove_ansi_escape_codes(output)}</pre>"))
 
     if error_output:
-        display(HTML(f"<pre style='color: red;'>{remove_ansi_escape_codes(error_output)}</pre>"))
+        display(
+            HTML(
+                f"<pre style='color: red;'>{remove_ansi_escape_codes(error_output)}</pre>"
+            )
+        )
+
 
 def load_ipython_extension(ipython):
-    ipython.register_magic_function(save_and_run_magic, magic_kind='line_cell')
+    ipython.register_magic_function(save_and_run_magic, magic_kind="line_cell")
