@@ -5,7 +5,7 @@ NAME
     contextlib - Utilities for with-statement contexts.  See PEP 343.
 
 MODULE REFERENCE
-    https://docs.python.org/3.8/library/contextlib
+    https://docs.python.org/3.11/library/contextlib.html
     
     The following documentation is automatically generated from the Python
     source files.  It may be incomplete, incorrect or include features that
@@ -17,10 +17,12 @@ CLASSES
     abc.ABC(builtins.object)
         AbstractAsyncContextManager
             AsyncExitStack(_BaseExitStack, AbstractAsyncContextManager)
+            aclosing
         AbstractContextManager
             ExitStack(_BaseExitStack, AbstractContextManager)
+            chdir
             closing
-            nullcontext
+            nullcontext(AbstractContextManager, AbstractAsyncContextManager)
             suppress
     builtins.object
         ContextDecorator
@@ -49,6 +51,11 @@ CLASSES
      |  
      |  ----------------------------------------------------------------------
      |  Class methods defined here:
+     |  
+     |  __class_getitem__ = GenericAlias(...) from abc.ABCMeta
+     |      Represent a PEP 585 generic type
+     |      
+     |      E.g. for t = list[int], t.__origin__ is list and t.__args__ is (int,).
      |  
      |  __subclasshook__(C) from abc.ABCMeta
      |      Abstract classes can override this to customize issubclass().
@@ -90,6 +97,11 @@ CLASSES
      |  
      |  ----------------------------------------------------------------------
      |  Class methods defined here:
+     |  
+     |  __class_getitem__ = GenericAlias(...) from abc.ABCMeta
+     |      Represent a PEP 585 generic type
+     |      
+     |      E.g. for t = list[int], t.__origin__ is list and t.__args__ is (int,).
      |  
      |  __subclasshook__(C) from abc.ABCMeta
      |      Abstract classes can override this to customize issubclass().
@@ -206,6 +218,11 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Class methods inherited from AbstractAsyncContextManager:
      |  
+     |  __class_getitem__ = GenericAlias(...) from abc.ABCMeta
+     |      Represent a PEP 585 generic type
+     |      
+     |      E.g. for t = list[int], t.__origin__ is list and t.__args__ is (int,).
+     |  
      |  __subclasshook__(C) from abc.ABCMeta
      |      Abstract classes can override this to customize issubclass().
      |      
@@ -303,6 +320,11 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Class methods inherited from AbstractContextManager:
      |  
+     |  __class_getitem__ = GenericAlias(...) from abc.ABCMeta
+     |      Represent a PEP 585 generic type
+     |      
+     |      E.g. for t = list[int], t.__origin__ is list and t.__args__ is (int,).
+     |  
      |  __subclasshook__(C) from abc.ABCMeta
      |      Abstract classes can override this to customize issubclass().
      |      
@@ -310,6 +332,124 @@ CLASSES
      |      It should return True, False or NotImplemented.  If it returns
      |      NotImplemented, the normal algorithm is used.  Otherwise, it
      |      overrides the normal algorithm (and the outcome is cached).
+    
+    class aclosing(AbstractAsyncContextManager)
+     |  aclosing(thing)
+     |  
+     |  Async context manager for safely finalizing an asynchronously cleaned-up
+     |  resource such as an async generator, calling its ``aclose()`` method.
+     |  
+     |  Code like this:
+     |  
+     |      async with aclosing(<module>.fetch(<arguments>)) as agen:
+     |          <block>
+     |  
+     |  is equivalent to this:
+     |  
+     |      agen = <module>.fetch(<arguments>)
+     |      try:
+     |          <block>
+     |      finally:
+     |          await agen.aclose()
+     |  
+     |  Method resolution order:
+     |      aclosing
+     |      AbstractAsyncContextManager
+     |      abc.ABC
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  async __aenter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  async __aexit__(self, *exc_info)
+     |      Raise any exception triggered within the runtime context.
+     |  
+     |  __init__(self, thing)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from AbstractAsyncContextManager:
+     |  
+     |  __class_getitem__ = GenericAlias(...) from abc.ABCMeta
+     |      Represent a PEP 585 generic type
+     |      
+     |      E.g. for t = list[int], t.__origin__ is list and t.__args__ is (int,).
+     |  
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |      
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from AbstractAsyncContextManager:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class chdir(AbstractContextManager)
+     |  chdir(path)
+     |  
+     |  Non thread-safe context manager to change the current working directory.
+     |  
+     |  Method resolution order:
+     |      chdir
+     |      AbstractContextManager
+     |      abc.ABC
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __enter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  __exit__(self, *excinfo)
+     |      Raise any exception triggered within the runtime context.
+     |  
+     |  __init__(self, path)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __abstractmethods__ = frozenset()
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from AbstractContextManager:
+     |  
+     |  __class_getitem__ = GenericAlias(...) from abc.ABCMeta
+     |      Represent a PEP 585 generic type
+     |      
+     |      E.g. for t = list[int], t.__origin__ is list and t.__args__ is (int,).
+     |  
+     |  __subclasshook__(C) from abc.ABCMeta
+     |      Abstract classes can override this to customize issubclass().
+     |      
+     |      This is invoked early on by abc.ABCMeta.__subclasscheck__().
+     |      It should return True, False or NotImplemented.  If it returns
+     |      NotImplemented, the normal algorithm is used.  Otherwise, it
+     |      overrides the normal algorithm (and the outcome is cached).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from AbstractContextManager:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
     
     class closing(AbstractContextManager)
      |  closing(thing)
@@ -354,6 +494,11 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Class methods inherited from AbstractContextManager:
      |  
+     |  __class_getitem__ = GenericAlias(...) from abc.ABCMeta
+     |      Represent a PEP 585 generic type
+     |      
+     |      E.g. for t = list[int], t.__origin__ is list and t.__args__ is (int,).
+     |  
      |  __subclasshook__(C) from abc.ABCMeta
      |      Abstract classes can override this to customize issubclass().
      |      
@@ -371,7 +516,7 @@ CLASSES
      |  __weakref__
      |      list of weak references to the object (if defined)
     
-    class nullcontext(AbstractContextManager)
+    class nullcontext(AbstractContextManager, AbstractAsyncContextManager)
      |  nullcontext(enter_result=None)
      |  
      |  Context manager that does no additional processing.
@@ -386,10 +531,17 @@ CLASSES
      |  Method resolution order:
      |      nullcontext
      |      AbstractContextManager
+     |      AbstractAsyncContextManager
      |      abc.ABC
      |      builtins.object
      |  
      |  Methods defined here:
+     |  
+     |  async __aenter__(self)
+     |      Return `self` upon entering the runtime context.
+     |  
+     |  async __aexit__(self, *excinfo)
+     |      Raise any exception triggered within the runtime context.
      |  
      |  __enter__(self)
      |      Return `self` upon entering the runtime context.
@@ -407,6 +559,11 @@ CLASSES
      |  
      |  ----------------------------------------------------------------------
      |  Class methods inherited from AbstractContextManager:
+     |  
+     |  __class_getitem__ = GenericAlias(...) from abc.ABCMeta
+     |      Represent a PEP 585 generic type
+     |      
+     |      E.g. for t = list[int], t.__origin__ is list and t.__args__ is (int,).
      |  
      |  __subclasshook__(C) from abc.ABCMeta
      |      Abstract classes can override this to customize issubclass().
@@ -455,6 +612,11 @@ CLASSES
      |  
      |  ----------------------------------------------------------------------
      |  Class methods inherited from AbstractContextManager:
+     |  
+     |  __class_getitem__ = GenericAlias(...) from abc.ABCMeta
+     |      Represent a PEP 585 generic type
+     |      
+     |      E.g. for t = list[int], t.__origin__ is list and t.__args__ is (int,).
      |  
      |  __subclasshook__(C) from abc.ABCMeta
      |      Abstract classes can override this to customize issubclass().
@@ -513,6 +675,11 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Class methods inherited from AbstractContextManager:
      |  
+     |  __class_getitem__ = GenericAlias(...) from abc.ABCMeta
+     |      Represent a PEP 585 generic type
+     |      
+     |      E.g. for t = list[int], t.__origin__ is list and t.__args__ is (int,).
+     |  
      |  __subclasshook__(C) from abc.ABCMeta
      |      Abstract classes can override this to customize issubclass().
      |      
@@ -566,6 +733,11 @@ CLASSES
      |  
      |  ----------------------------------------------------------------------
      |  Class methods inherited from AbstractContextManager:
+     |  
+     |  __class_getitem__ = GenericAlias(...) from abc.ABCMeta
+     |      Represent a PEP 585 generic type
+     |      
+     |      E.g. for t = list[int], t.__origin__ is list and t.__args__ is (int,).
      |  
      |  __subclasshook__(C) from abc.ABCMeta
      |      Abstract classes can override this to customize issubclass().
@@ -643,6 +815,6 @@ DATA
     __all__ = ['asynccontextmanager', 'contextmanager', 'closing', 'nullco...
 
 FILE
-    /opt/conda/lib/python3.8/contextlib.py
+    c:\python311\lib\contextlib.py
 
 
