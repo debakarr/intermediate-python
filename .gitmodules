@@ -1,0 +1,3 @@
+[submodule "content/about_me"]
+	path = content/about_me
+	url = https://github.com/debakarr/debakarr.git
